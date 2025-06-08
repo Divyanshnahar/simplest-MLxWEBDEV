@@ -8,8 +8,9 @@ export async function POST(request: Request) {
   }
 
   // Example model weights (you can use real ones from Python)
-  const weights = [0.45, 1.2, 0.12, 0.05, 0.02, 0.85, 1.1, 0.3];
-  const bias = -0.85;
+  const weights = [ 0.21624195,  1.06932996, -0.25867641,  0.04720329, -0.19899822,  0.79237086,  0.22709403,  0.43036184];
+
+  const bias = -0.8559494150701518;
 
   const score = inputs.reduce((sum, val, i) => sum + val * weights[i], bias);
   const probability = 1 / (1 + Math.exp(-score));
