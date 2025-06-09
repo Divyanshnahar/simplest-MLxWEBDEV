@@ -16,5 +16,5 @@ export async function POST(request: Request) {
   const probability = 1 / (1 + Math.exp(-score));
   const prediction = probability > 0.5 ? 'Diabetes Present' : 'Not Present';
 
-  return NextResponse.json({ prediction, probability: probability.toFixed(2) });
+  return NextResponse.json({ prediction, probability: probability });
 }

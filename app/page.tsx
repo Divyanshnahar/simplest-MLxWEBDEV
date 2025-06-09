@@ -16,6 +16,8 @@ const fieldNames = [
 export default function Home() {
   const [inputs, setInputs] = useState<string[]>(Array(8).fill(''));
   const [result, setResult] = useState<string | null>(null);
+  const [prob, setProb] = useState<number | null>(null);
+  
 
   const handleChange = (i: number, value: string) => {
     const updated = [...inputs];
@@ -31,6 +33,7 @@ export default function Home() {
     });
     const data = await res.json();
     setResult(data.prediction);
+    setProb(data.probability);
   };
 
   return (
@@ -57,6 +60,9 @@ export default function Home() {
       {result && (
         <p className="mt-4 text-xl">
           Prediction: <span className="font-semibold">{result}</span>
+          <br />
+          Probability: <span className="font-semibold">{prob}</span>
+
         </p>
       )}
     </main>
